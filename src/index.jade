@@ -1,4 +1,97 @@
 extends _layouts/base
 
+include _modules/slider/slider
+include _modules/scrollbar/scrollbar
+include _modules/pagination/pagination
+include _modules/contacto/contacto
+
 block content
     main.home
+        section#home.home__hero
+            +slider('home__hero__slider')
+                each slide in site.data.home.slider
+                    .home__hero__slide
+                        .home__hero__slide__img
+                            img(src=slide.img)
+                        .home__hero__slide__overlay
+                        .container.home__hero__container
+                            .home__hero__slide__data
+                                h2.home__hero__slide__title!=slide.title
+                                p.home__hero__slide__desc=slide.desc
+                                a._button(href="#") Conoce más
+                            
+        section#nosotros.home__nosotros(data-name="El Estudio")
+            .container
+                .row.nopadding
+                    .col-xs-24.col-sm-8.home__nosotros__historia
+                        h2.section-title.home__nosotros__title Historia
+                        p.home__nosotros__desc Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        .home__nosotros__img
+                            img.img-responsive(src="/images/home/historia.jpg")
+                            
+                    .col-xs-24.col-sm-16.home__nosotros__values
+                        .home__nosotros__value
+                            ._icon
+                                img(src="/images/home/icon-mision.png")
+                                
+                            ._text
+                                h3 Misión
+                                p Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend definitionem vim.
+                
+                        .home__nosotros__value
+                            ._icon
+                                img(src="/images/home/icon-vision.png")
+                                
+                            ._text
+                                h3 Visión
+                                p Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend definitionem vim.
+                                
+                        .home__nosotros__value
+                            ._icon
+                                img(src="/images/home/icon-logros.png")
+                                
+                            ._text
+                                h3 Logros
+                                p Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend definitionem vim.
+                        
+                        a._button(href="/nosotros") Conocé el estudio
+
+        section#portfolio.home__portfolio(data-name="Portfolio")
+            .container
+                .row.nopadding
+                    .col-xs-24
+                        h2.section-title.home__portfolio__title Proyectos recientes
+                        ul.row.nopadding.home__portfolio__projects
+                            each project in site.data.home.portfolio
+                                li.col-xs-24.col-sm-12.col-md-6
+                                    .home__portfolio__project
+                                        .home__portfolio__project__img
+                                            img(src=project.cover)
+                                        .home__portfolio__project__data
+                                            h3.home__portfolio__project__name= project.name
+                                            span.home__portfolio__project__date= project.date
+                                            p.home__portfolio__project__desc= project.desc
+                                            a._button.-white.home__portfolio__project__link(href='#') ver proyecto
+                                        
+        section#blog.home__blog(data-name="Notas e Ideas")
+            .container
+                .row.nopadding-xs
+                    .col-xs-24
+                        h2.section-title.home__blog__title Actualidad
+                        ul.row.nopadding-xs.home__blog__notas
+                            each nota in site.data.home.blog
+                                li.col-xs-24.col-sm-12.col-md-6
+                                    .home__blog__nota
+                                        .home__blog__nota__img
+                                            img(src=nota.cover)
+                                        .home__blog__nota__data
+                                            h3.home__blog__nota__name= nota.name
+                                            span.home__blog__nota__date= nota.date
+                                            p.home__blog__nota__desc= nota.desc
+                                            a.home__blog__nota__link(href='#') seguir leyendo
+                        +pagination(5)                
+
+        
+        +contacto
+        
+    +scroll-bar

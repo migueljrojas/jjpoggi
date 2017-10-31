@@ -1,0 +1,63 @@
+.contacto {
+    min-height: 60vh !important;
+    padding-bottom: 40px;
+
+    &__form {
+        padding-bottom: 40px;
+
+        &__group {
+            margin-bottom: 15px;
+        }
+
+        &__label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: $altFont;
+        }
+
+        &__input {
+            background: $lightGray;
+            border: none;
+            width: 100%;
+            height: 40px;
+            padding: 3px 5px;
+            line-height: 40px;
+            font-size: 18px;
+            font-weight: 300;
+            color: $text;
+            max-width: 400px;
+
+            &--textarea {
+                height: 180px;
+            }
+        }
+    }
+
+    &__address {
+        display: flex;
+        margin-bottom: 40px;
+
+        &__icon {
+            padding-right: 20px;
+            i {
+                font-size: 24px;
+            }
+        }
+
+        &__text {
+            h3, p{
+                margin: 0;
+            }
+
+            h3 {
+                text-transform: uppercase;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+
+        }
+    }
+}

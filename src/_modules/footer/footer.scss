@@ -1,4 +1,34 @@
 .footer {
-    padding: 20px 0;
+    padding: 20px 0 60px;
     background: $lightGray;
+    @include mq(sm) {
+
+        height: 180px;
+    }
+    &__logo {
+        width: 200px;
+        height: 60px;
+
+        svg {
+            fill: $midGray;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    p{
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: $altFont;
+        color: $midGray;
+    }
 }

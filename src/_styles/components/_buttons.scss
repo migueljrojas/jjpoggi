@@ -4,7 +4,7 @@ button._button,
     background: $link;
     color: $white;
     display: inline-block;
-    font-family: $mainFont;
+    font-family: $altFont;
     font-size: $xs;
     font-weight: 700;
     height: $base;
@@ -14,6 +14,7 @@ button._button,
     text-align: center;
     transition: all $duration $easingLight;
     border-radius: $radius;
+    text-transform: uppercase;
 
     &:hover{
         background: $linkHover;
@@ -26,7 +27,7 @@ button._button,
         color: $black;
 
         &:hover{
-            color: $blue;
+            color: $black;
             background: $white;
             padding: 0 40px;
         }
@@ -41,7 +42,7 @@ button._button,
         font-family: $mainFont;
 
         &:hover{
-            background: $blue;
+            background: $black;
             padding: 0 40px;
         }
     }
@@ -62,7 +63,7 @@ button._button,
         background: $black;
 
         &:hover{
-            color: $blue;
+            color: $white;
             background: $black;
             padding: 0 60px;
         }

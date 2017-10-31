@@ -1,3 +1,66 @@
 {
-    
+    "slider":[
+        {
+            "img":"/images/home/slider1.jpg",
+            "title":"Caja verde <strong>de Matienzo</strong>",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "img":"/images/home/slider2.jpg",
+            "title":"Consectetur <strong>adipiscing elit</strong>",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+    ],
+    "portfolio": [
+        {
+            "cover":"/images/home/project1.jpg",
+            "date":"Jun. 2017",
+            "name":"Nombre del Proyecto",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "cover":"/images/home/project2.jpg",
+            "date":"Jun. 2017",
+            "name":"Nombre del Proyecto",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "cover":"/images/home/project3.jpg",
+            "date":"Jun. 2017",
+            "name":"Nombre del Proyecto",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "cover":"/images/home/project4.jpg",
+            "date":"Jun. 2017",
+            "name":"Nombre del Proyecto",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+    ],
+    "blog": [
+        {
+            "cover":"/images/home/nota1.jpg",
+            "date":"Jun. 2017",
+            "name":"Lorem ipsum dolor sit amet",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "cover":"/images/home/nota2.jpg",
+            "date":"Jun. 2017",
+            "name":"Lorem ipsum dolor sit amet",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "cover":"/images/home/nota3.jpg",
+            "date":"Jun. 2017",
+            "name":"Lorem ipsum dolor sit amet",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "cover":"/images/home/nota4.jpg",
+            "date":"Jun. 2017",
+            "name":"Lorem ipsum dolor sit amet",
+            "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+    ]
 }

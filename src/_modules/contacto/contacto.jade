@@ -1,0 +1,34 @@
+mixin contacto()
+
+    section#contacto.contacto(data-name='Contacto')
+        .container
+            .row
+                .col-xs-24.col-sm-12
+                    h2.section-title Contactanos
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                    form.contacto__form
+                        .contacto__form__group
+                            label.contacto__form__label Nombre y Apellido
+                            input.contacto__form__input(type="text")
+                        .contacto__form__group
+                            label.contacto__form__label Email
+                            input.contacto__form__input(type="email")
+                        .contacto__form__group
+                            label.contacto__form__label Telefono
+                            input.contacto__form__input(type="text")
+                        .contacto__form__group
+                            label.contacto__form__label Mensaje
+                            textarea.contacto__form__input.contacto__form__input--textarea()
+                        button._button Enviar
+                .col-xs-24.col-sm-12
+                    .contacto__address
+                        .contacto__address__icon
+                            i.fa.fa-map-marker
+                        .contacto__address__text
+                            h3 estamos en
+                            p Av. Ministro Carranza XXXX
+                            p Palermo. CABA. 2638.
+                            p Buenos Aires, Argentina
+                            
+                    .embed-responsive.-map
+                        iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.8053897973027!2d-58.44080357680411!3d-34.58379047902032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb592be371e77%3A0x3dd7759ef0a10f15!2s%C3%81ngel+Justiniano+Carranza+1625%2C+C1414COQ+CABA%2C+Argentina!5e0!3m2!1ses!2sve!4v1509464441286", allowfullscreen)

@@ -1,6 +1,26 @@
 [
     {
-        "name":"",
-        "url":""
+        "name":"Home",
+        "url":"/"
+    },
+    {
+        "name":"El Estudio",
+        "url":"/nosotros"
+    },
+    {
+        "name":"Portfolio",
+        "url":"/portfolio"
+    },
+    {
+        "name":"Servicios",
+        "url":"/servicios"
+    },
+    {
+        "name":"Notas e Ideas",
+        "url":"/blog"
+    },
+    {
+        "name":"Contactanos",
+        "url":"#contacto"
     }
 ]
