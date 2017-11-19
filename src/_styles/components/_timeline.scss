@@ -1,0 +1,170 @@
+.timeline {
+    display: flex;
+    align-items: center;
+
+    &__nav {
+        width: 50px;
+        height: 50px;
+        background: $black;
+        border-radius: 50%;
+        line-height: 50px;
+        border: none;
+        color: $white;
+        flex-shrink: 0;
+        transform: translateY(-100%);
+
+        &:focus{
+            outline: none;
+            box-shadow: none;
+        }
+
+        i {
+            line-height: 50px;
+            font-size: 24px;
+        }
+
+        &--right {
+            order: 2;
+        }
+    }
+
+    &__wrapper {
+        flex-grow: 2;
+        overflow: hidden;
+        position: relative;
+        margin: 0 20px;
+        height: 300px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background: $black;
+            top: 100px;
+            pointer-events: none;
+        }
+    }
+
+    &__limit {
+        height: 50px;
+        width: 1px;
+        background: $black;
+        position: absolute;
+        top: 75px;
+
+        &--left {
+            left: 0;
+        }
+
+        &--right {
+            right: 0;
+        }
+    }
+
+    &__list {
+        white-space: nowrap;
+        overflow-y: hidden;
+        overflow-x: auto;
+        min-height: 300px;
+        padding-bottom: 50px;
+        box-sizing: content-box;
+        cursor:move;
+        cursor:-webkit-grab;
+        cursor:-moz-grab;
+        cursor:grab;
+
+    }
+
+    &__item {
+
+        $i: &;
+
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        max-width: 220px;
+        padding: 0 20px;
+        white-space: normal;
+        position: relative;
+        margin: 0 10px;
+
+        @include mq(sm){
+            margin: 0 40px;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover{
+
+            #{$i}__desc {
+                opacity: 1;
+            }
+        }
+
+        &__year {
+            font-size: 16px;
+            font-weight: 700;
+            height: 100px;
+            position: relative;
+            width: 100%;
+
+            &:before {
+                content: '';
+                height: 70px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 1px;
+                margin: auto;
+                background: $black;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                height: 14px;
+                width: 14px;
+                bottom: -7px;
+                background: $black;
+                left: 0;
+                right: 0;
+                margin: auto;
+                border-radius: 50%;
+            }
+        }
+
+        &__desc {
+            @include trans;
+            opacity: 1;
+            position: absolute;
+            width: 90%;
+            left: 0;
+            right:0;
+            margin: auto;
+            top: 110px;
+
+            h3 {
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            p {
+                font-size: 14px;
+                color: $darkGray;
+                line-height: 21px;
+            }
+
+            @include mq(md){
+                opacity: 0;
+            }
+        }
+    }
+}

@@ -14833,6 +14833,7 @@ module.exports = ScrollBar;
 // Constructor
 var Slider = function() {
     var slider = $('._slider');
+    var sliderMulti = $('._slidermulti');
     if (slider) {
         slider.each(function(){
             $(this).slick({
@@ -14843,11 +14844,99 @@ var Slider = function() {
             });
         });
     }
+    if (sliderMulti) {
+        sliderMulti.each(function(){
+            $(this).slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                autoplay: true,
+                responsive: [
+                    {
+                        breakpoint: 900,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            centerMode: true,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    }
 };
 
 module.exports = Slider;
 
 },{}],8:[function(require,module,exports){
+'use strict';
+
+var Timeline = function() {
+    var timeline = $('.timeline');
+
+    if (timeline) {
+        var list = $('.timeline__list');
+        var attachment = false, lastPosition, position, difference;
+        var leftBtn = $('.timeline__nav--left');
+        var rightBtn = $('.timeline__nav--right');
+        var scroll = 0;
+        var listItemLength = list.children('li').length;
+        var listItemWidth = list.children('li').outerWidth();
+        var listScrollWidth = listItemLength * listItemWidth;
+        var listScrollLimit = (listItemLength - 1) * 213;
+
+        list.on("mousedown mouseup mousemove",function(e){
+            if( e.type == "mousedown" ){
+                attachment = true, lastPosition = [e.clientX, e.clientY];
+            }
+            if( e.type == "mouseup" ) {
+                attachment = false;
+            }
+            if( e.type == "mousemove" && attachment == true ){
+                position = [e.clientX, e.clientY];
+                difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
+                $(this).scrollLeft( $(this).scrollLeft() - difference[0] );
+                $(this).scrollTop( $(this).scrollTop() - difference[1] );
+                lastPosition = [e.clientX, e.clientY];
+            }
+        });
+
+        list.on("mouseenter mouseleave", function(){
+            attachment = false;
+        });
+
+        rightBtn.on("click", function(){
+            if( scroll <= listScrollLimit ) {
+                scroll = scroll > listScrollLimit - 213 ? listScrollLimit : scroll+213;
+                list.animate({
+                    scrollLeft:  scroll
+                });
+            }
+        });
+
+        leftBtn.on("click", function(){
+            if( scroll >= 213 ) {
+                scroll = scroll-213;
+                list.animate({
+                    scrollLeft:  scroll
+                });
+            }
+        });
+    }
+};
+
+module.exports = Timeline;
+
+},{}],9:[function(require,module,exports){
 (function (global){
 // Main javascript entry point
 // Should handle bootstrapping/starting application
@@ -14859,6 +14948,7 @@ global._ = require('underscore');
 var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
 var ScrollBar = require('../_modules/scrollbar/scrollbar');
+var Timeline = require('../_modules/timeline/timeline');
 
 $(function() {
     require('../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min');
@@ -14867,10 +14957,11 @@ $(function() {
     new Header();
     new Slider();
     new ScrollBar();
+    new Timeline();
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min":1,"../../bower_components/slick-carousel/slick/slick":2,"../_modules/header/header":5,"../_modules/scrollbar/scrollbar":6,"../_modules/slider/slider":7,"jquery":3,"underscore":4}]},{},[8])
+},{"../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min":1,"../../bower_components/slick-carousel/slick/slick":2,"../_modules/header/header":5,"../_modules/scrollbar/scrollbar":6,"../_modules/slider/slider":7,"../_modules/timeline/timeline":8,"jquery":3,"underscore":4}]},{},[9])
 
 //# sourceMappingURL=main.js.map

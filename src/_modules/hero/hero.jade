@@ -1,0 +1,7 @@
+mixin hero(klass, title)
+    section#hero.hero(class="#{klass}__hero", data-name=title)
+        .hero__img
+            img(src="/images/#{klass}/hero.jpg")
+        .hero__overlay
+        .container.hero__container
+            h1.hero__title= title

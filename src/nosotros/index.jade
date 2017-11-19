@@ -1,0 +1,125 @@
+extends ../_layouts/base
+
+include ../_modules/hero/hero
+include ../_modules/slider/slider
+include ../_modules/scrollbar/scrollbar
+include ../_modules/pagination/pagination
+include ../_modules/contacto/contacto
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.nosotros
+        
+        +hero('nosotros', 'El Estudio')
+        
+        section#intro.nosotros__intro(data-name="J.J. Poggi")
+            .container
+                .row
+                    .col-xs-24.col-sm-16
+                        p.nosotros__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        p.nosotros__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                    .col-xs-24.col-sm-8.text-center.nosotros__intro__cta
+                        a._button(href='/portfolio') Nuestro trabajo
+                        
+        section#values.nosotros__values(data-name="Valores")
+            .container
+                .row
+                    .col-xs-24.nosotros__value__list
+                        .nosotros__value
+                            ._icon
+                                img(src="/images/home/icon-mision.png")
+                                
+                            ._text
+                                h3 Misión
+                                p Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend definitionem vim.
+                
+                        .nosotros__value
+                            ._icon
+                                img(src="/images/home/icon-vision.png")
+                                
+                            ._text
+                                h3 Visión
+                                p Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend definitionem vim.
+                                
+                        .nosotros__value
+                            ._icon
+                                img(src="/images/home/icon-logros.png")
+                                
+                            ._text
+                                h3 Logros
+                                p Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend definitionem vim.
+        
+        section#historia.nosotros__historia(data-name="Historia")
+            .container
+                .row
+                    .col-xs-24
+                        h2.section-title Historia
+                        
+                        .timeline
+                            button.timeline__nav.timeline__nav--left
+                                i.material-icons keyboard_arrow_left
+                            button.timeline__nav.timeline__nav--right
+                                i.material-icons keyboard_arrow_right
+
+                            .timeline__wrapper
+                                span.timeline__limit.timeline__limit--left
+                                span.timeline__limit.timeline__limit--right
+                                ul.timeline__list
+                                    each item in site.data.nosotros.history
+                                        li.timeline__item
+                                            .timeline__item__year= item.year
+                                            .timeline__item__desc
+                                                h3= item.title
+                                                p= item.desc
+        
+        section#team.nosotros__equipo(data-name="Nuestro Equipo")
+            .container-fluid
+                .row
+                    .col-xs-24
+                        h2.section-title Nuestro Equipo
+                        +slider('nosotros__equipo__list','multi')
+                            each person in site.data.nosotros.equipo
+                                .nosotros__equipo__item
+                                    .nosotros__equipo__member
+                                        .nosotros__equipo__member__img
+                                            img(src=person.img)
+                                        .nosotros__equipo__member__data
+                                            h3.nosotros__equipo__member__name= person.name
+                                            p.nosotros__equipo__member__position= person.position
+        
+        section#services.nosotros__servicios(data-name="Servicios")
+            .container
+                .row
+                    .col-xs-24
+                        h2.section-title Servicios
+                    each service, index in site.data.nosotros.services
+                        .col-xs-24.col-sm-12.col-md-6
+                            .nosotros__servicios__item.text-center
+                                .nosotros__servicios__icon
+                                    img(src='/images/nosotros/service#{index + 1}.png')
+                                h3.nosotros__servicios__name= service
+                                p.nosotros__servicios__desc Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend definitionem vim.
+                                a._button(href='/servicios/#{service}') Más Info
+                                
+        section#clientes.nosotros__clientes(data-name="Nuestros Clientes")
+            .container
+                .row
+                    .col-xs-24
+                        h2.section-title Nuestros clientes
+            .nosotros__clientes__list
+                .container
+                    .row
+                        .col-xs-24
+                            +slider('nosotros__clientes__slider', 'multi')
+                                - for (var i = 0; i < 5; ++i) {
+                                    .nosotros__clientes__item
+                                        .nosotros__clientes__logo
+                                            img(src="/images/nosotros/cliente#{i+1}.png")
+                                - }
+        
+        +contacto
+        
+    +scroll-bar

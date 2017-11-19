@@ -8,6 +8,7 @@ global._ = require('underscore');
 var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
 var ScrollBar = require('../_modules/scrollbar/scrollbar');
+var Timeline = require('../_modules/timeline/timeline');
 
 $(function() {
     require('../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min');
@@ -16,4 +17,5 @@ $(function() {
     new Header();
     new Slider();
     new ScrollBar();
+    new Timeline();
 });

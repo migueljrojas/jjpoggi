@@ -1,0 +1,67 @@
+{
+    "history":[
+        {
+            "year":"2017",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        },
+        {
+            "year":"2015",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        },
+        {
+            "year":"2013",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        },
+        {
+            "year":"2010",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        },
+        {
+            "year":"2005",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        },
+        {
+            "year":"2002",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        },
+        {
+            "year":"2000",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        },
+        {
+            "year":"1997",
+            "title":"Loren ipsum dolor sit amet",
+            "desc":"Ut nec hinc dolor possim.Ea mei nostrum imperdiet deterruisset, mei ludus efficiendi ei. Sea summo mazim ex, ea errem eleifend."
+        }
+    ],
+    "equipo":[
+        {
+            "img":"/images/nosotros/person1.jpg",
+            "name":"John Doe",
+            "position":"Arquitecto"
+        },
+        {
+            "img":"/images/nosotros/person2.jpg",
+            "name":"Juan Jose Poggi",
+            "position":"Director"
+        },
+        {
+            "img":"/images/nosotros/person3.jpg",
+            "name":"Jane Doe",
+            "position":"Arquitecto"
+        }
+    ],
+    "services":[
+        "Estrategia",
+        "Planificación",
+        "Diseño",
+        "Ejecución"
+    ]
+}
