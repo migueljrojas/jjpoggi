@@ -14661,6 +14661,25 @@ return jQuery;
 },{}],5:[function(require,module,exports){
 'use strict';
 
+var Filter = function() {
+    console.log('filter');
+
+    var filter = $('.portfolio__showcase__filter');
+
+    if (filter.length) {
+        var trigger = filter.find('.portfolio__showcase__filter__label');
+
+        trigger.on('click', function() {
+            filter.toggleClass('-open');
+        });
+    }
+}
+
+module.exports = Filter;
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
 // Constructor
 var Header = function() {
     var header = $('.header');
@@ -14681,7 +14700,7 @@ var Header = function() {
 
 module.exports = Header;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 // Constructor
@@ -14827,7 +14846,7 @@ $('a[href*="#"]')
 
 module.exports = ScrollBar;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 // Constructor
@@ -14839,7 +14858,7 @@ var Slider = function() {
             $(this).slick({
                 dots: true,
                 fade: true,
-                arrows:  false,
+                arrows:  true,
                 autoplay: true
             });
         });
@@ -14847,18 +14866,18 @@ var Slider = function() {
     if (sliderMulti) {
         sliderMulti.each(function(){
             $(this).slick({
-                dots: false,
+                dots: true,
                 infinite: true,
                 speed: 300,
-                slidesToShow: 5,
-                slidesToScroll: 5,
+                slidesToShow: 4,
+                slidesToScroll: 4,
                 autoplay: true,
                 responsive: [
                     {
                         breakpoint: 900,
                         settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3
+                            slidesToShow: 2,
+                            slidesToScroll: 2
                         }
                     },
                     {
@@ -14877,7 +14896,7 @@ var Slider = function() {
 
 module.exports = Slider;
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 var Timeline = function() {
@@ -14936,7 +14955,7 @@ var Timeline = function() {
 
 module.exports = Timeline;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 (function (global){
 // Main javascript entry point
 // Should handle bootstrapping/starting application
@@ -14949,6 +14968,7 @@ var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
 var ScrollBar = require('../_modules/scrollbar/scrollbar');
 var Timeline = require('../_modules/timeline/timeline');
+var Filter = require('../_modules/filter/filter');
 
 $(function() {
     require('../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min');
@@ -14958,10 +14978,11 @@ $(function() {
     new Slider();
     new ScrollBar();
     new Timeline();
+    new Filter();
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min":1,"../../bower_components/slick-carousel/slick/slick":2,"../_modules/header/header":5,"../_modules/scrollbar/scrollbar":6,"../_modules/slider/slider":7,"../_modules/timeline/timeline":8,"jquery":3,"underscore":4}]},{},[9])
+},{"../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min":1,"../../bower_components/slick-carousel/slick/slick":2,"../_modules/filter/filter":5,"../_modules/header/header":6,"../_modules/scrollbar/scrollbar":7,"../_modules/slider/slider":8,"../_modules/timeline/timeline":9,"jquery":3,"underscore":4}]},{},[10])
 
 //# sourceMappingURL=main.js.map

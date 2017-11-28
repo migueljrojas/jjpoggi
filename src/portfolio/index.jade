@@ -1,0 +1,80 @@
+extends ../_layouts/base
+
+include ../_modules/hero/hero
+include ../_modules/slider/slider
+include ../_modules/scrollbar/scrollbar
+include ../_modules/pagination/pagination
+include ../_modules/contacto/contacto
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.portfolio
+        
+        +hero('portfolio', 'Portfolio')
+
+        section#intro.portfolio__intro
+            .container
+                .row
+                    .col-xs-24
+                        p.portfolio__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        section#portfolio.portfolio__showcase(data-name="Nuestro Trabajo")
+            .container
+                .row.nopadding
+                    .col-xs-24
+                        .portfolio__showcase__filter
+                            .portfolio__showcase__filter__label
+                                i.material-icons filter_list
+                                span Filtrar por:
+                                span
+                                    i.material-icons keyboard_arrow_down
+                                
+                            .portfolio__showcase__filter__list
+                                .portfolio__showcase__filter__item
+                                    select
+                                        option Tema
+                                        option Tema 1
+                                        option Tema 2
+                                        option Tema 3
+                                        
+                                .portfolio__showcase__filter__item
+                                    select
+                                        option Servicios
+                                        option Servicio 1
+                                        option Servicio 2
+                                        option Servicio 3
+                                                
+                                .portfolio__showcase__filter__item
+                                    select
+                                        option Tiempo
+                                        option 2017
+                                        option 2016
+                                        option 2015
+                                                        
+                                .portfolio__showcase__filter__item
+                                    select
+                                        option Idea
+                                        option Idea 1
+                                        option Idea 2
+                                        option Idea 3
+                                        
+                        ul.row.nopadding.portfolio__showcase__list
+                            each project in site.data.portfolio.list
+                                li.col-xs-24.col-sm-12.col-md-6
+                                    .portfolio__showcase__project
+                                        .portfolio__showcase__project__img
+                                            img(src=project.cover)
+                                        .portfolio__showcase__project__data
+                                            h3.portfolio__showcase__project__name= project.name
+                                            span.portfolio__showcase__project__date= project.date
+                                            p.portfolio__showcase__project__desc= project.desc
+                                            a._button.-white.portfolio__showcase__project__link(href='/proyecto') ver proyecto
+                        
+                        +pagination(5)
+
+        +contacto
+
+    +scroll-bar

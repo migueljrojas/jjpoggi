@@ -1,0 +1,192 @@
+.proyecto {
+    &__showcase {
+        padding: 40px 0;
+
+        @include mq(md){
+            padding: 80px 0;
+        }
+
+        &__slider {
+            padding-bottom: 40px;
+
+            .slick-dots {
+                left: 10px;
+                right: 10px;
+                transform: translateX(0);
+                bottom: 10px;
+
+                li{
+                    width: 10px;
+                    height: 10px;
+
+                    button:before {
+                        color: $mainColor;
+                    }
+                }
+            }
+
+            .slick-prev, .slick-next {
+                @include mq(md){
+                    top:auto;
+                    bottom: 0;
+                    transform: translateY(0);
+                    &:before {
+                        color: $mainColor;
+                    }
+                }
+            }
+        }
+
+        &__slide {
+            &__img {
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.5%;
+                position: relative;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    width: 100%;
+                }
+            }
+        }
+
+        &__data {
+            background: $lightestGray;
+            padding: 15px;
+            border-bottom: 5px solid $mainColor;
+
+            &__item {
+                margin-bottom: 15px;
+            }
+
+            &__title {
+                font-size: 14px;
+                text-transform: uppercase;
+                margin: 0 0 5px;
+            }
+
+            &__text {
+                margin: 0;
+            }
+        }
+
+    }
+
+    &__related {
+        &__slider {
+            padding-bottom: 20px;
+
+            .slick-dots {
+                left: 10px;
+                right: 10px;
+                transform: translateX(0);
+                bottom: 10px;
+
+                li{
+                    width: 10px;
+                    height: 10px;
+
+                    button:before {
+                        color: $mainColor;
+                    }
+                }
+            }
+
+            .slick-prev, .slick-next {
+                @include mq(md){
+                    top:auto;
+                    bottom: 0;
+                    transform: translateY(0);
+                    &:before {
+                        color: $mainColor;
+                    }
+                }
+            }
+        }
+
+        &__project {
+            $p: &;
+
+            height: 0;
+            padding-bottom: 135%;
+            position: relative;
+            overflow: hidden;
+            margin:15px;
+
+
+            &:hover {
+                #{$p}__data {
+                    opacity: 1;
+                    transform: translateX(0);
+                    pointer-events: all;
+                }
+            }
+
+            &__img {
+                position: absolute;
+                z-index: 0;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                overflow: hidden;
+
+                img {
+                    position: absolute;
+                    height: 100%;
+                    width: auto;
+                    top:0;
+                    left:0;
+                }
+            }
+
+            &__data {
+                @include trans;
+
+                position: absolute;
+                z-index: 1;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background: rgba(0,0,0,.7);
+                color: $white;
+                padding: 15px;
+                opacity: 0;
+                transform: translateX(100%);
+                pointer-events: none;
+            }
+
+            &__name {
+                text-transform: uppercase;
+                font-size: 16px;
+                margin: 0;
+            }
+
+            &__date {
+                display: block;
+                padding: 10px 0;
+                border-top: 1px dotted $white;
+                border-bottom: 1px dotted $white;
+                margin: 10px 0;
+                font-weight: 700;
+                font-size: 14px;
+            }
+
+            &__desc{
+                margin: 0;
+            }
+
+            &__link {
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+            }
+        }
+    }
+}

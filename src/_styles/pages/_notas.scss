@@ -1,0 +1,269 @@
+.notas {
+    &__main {
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        @include mq(md){
+            padding-top:80px;
+            padding-bottom:80px;
+        }
+    }
+
+    &__item {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        margin-bottom: 40px;
+
+        &__img {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top:0;
+                bottom:0;
+                height: 100%;
+                width: auto;
+                left:50%;
+                transform: translateX(-50%);
+            }
+        }
+        &__data {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            background: $lightestGray;
+            padding: 15px;
+
+            &__title {
+                text-transform: uppercase;
+                margin: 0;
+                font-size: 21px;
+            }
+
+            &__info {
+                border-top: 1px solid $midGray + #222;
+                border-bottom: 1px solid $midGray + #222;
+                display: flex;
+                padding: 5px 0;
+                margin: 10px 0;
+            }
+
+            &__date {
+                font-weight: 700;
+                margin-right: 10px;
+            }
+
+            &__autor {
+                margin-right: 10px;
+            }
+
+            &__readmore {
+                position: absolute;
+                right: 0;
+                bottom:0;
+                background: $link;
+                color: $white;
+                padding: 5px 15px;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    &__sidebar {
+        &__col {
+            padding-top: 40px;
+            padding-bottom: 40px;
+
+            @include mq(md){
+                padding-top:80px;
+                padding-bottom:80px;
+            }
+        }
+
+        background: $lightestGray;
+        border-top: 5px solid $mainColor;
+
+        &__search-form {
+            padding: 10px;
+            position: relative;
+
+            input {
+                width: 100%;
+                background: $white;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 50px 0 10px;
+                border: none;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+
+            button {
+                position: absolute;
+                right: 10px;
+                top:10px;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                background: $white;
+            }
+        }
+
+        &__news {
+            padding: 10px;
+
+            &__title {
+                text-transform: uppercase;
+                font-size: 16px;
+                margin: 0 0 10px;
+            }
+
+            &__list {
+                list-style: none;
+            }
+
+            &__item {
+                border-bottom: 1px solid $midGray + #222;
+                padding: 10px 0;
+                &__title {
+                    font-size: 16px;
+                    margin: 0 0 5px;
+                }
+
+                &__text {
+                    font-size: 14px;
+                    margin: 0 0 5px;
+                }
+
+                &__readmore {
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        &__newsletter {
+            background: $mainColor;
+            padding: 10px;
+            color: $white;
+
+            &__group {
+                position: relative;
+            }
+
+            input {
+                width: 100%;
+                background: $white;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 50px 0 10px;
+                border: none;
+                color: $text;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+
+            button {
+                position: absolute;
+                right: 0;
+                top:0;
+                padding: 0 10px;
+                height: 40px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                background: $darkGray;
+                color: $white;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+
+            &__title {
+                font-size: 16px;
+                text-transform: uppercase;
+                font-weight: 700;
+                margin: 0 0 5px;
+            }
+
+            &__text {
+                font-size: 14px;
+                margin: 0 0 5px;
+            }
+        }
+
+    }
+
+    &__related {
+        padding-bottom: 40px;
+
+        @include mq(md){
+            padding-bottom:80px;
+        }
+    }
+}
+
+.nota {
+    &__title {
+        font-size: 24px;
+        text-transform: uppercase;
+
+        @include mq(md){
+            font-size: 36px;
+        }
+    }
+
+    &__content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        @include mq(md){
+            padding-top:40px;
+            padding-bottom:40px;
+        }
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 24px;
+
+        @include mq(md){
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+
+    &__subtitle{
+        font-size: 21px;
+        text-transform: uppercase;
+        margin: 10px 0;
+    }
+}

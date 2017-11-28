@@ -66,9 +66,12 @@
         z-index: 2;
         margin: 0;
         line-height: 0.7;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
 
         @include mq(md){
             font-size: 6vw;
+            letter-spacing: -2px;
         }
     }
 }

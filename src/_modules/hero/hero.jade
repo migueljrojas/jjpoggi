@@ -4,4 +4,5 @@ mixin hero(klass, title)
             img(src="/images/#{klass}/hero.jpg")
         .hero__overlay
         .container.hero__container
-            h1.hero__title= title
+            if title
+                h1.hero__title= title

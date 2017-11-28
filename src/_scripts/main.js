@@ -9,6 +9,7 @@ var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
 var ScrollBar = require('../_modules/scrollbar/scrollbar');
 var Timeline = require('../_modules/timeline/timeline');
+var Filter = require('../_modules/filter/filter');
 
 $(function() {
     require('../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min');
@@ -18,4 +19,5 @@ $(function() {
     new Slider();
     new ScrollBar();
     new Timeline();
+    new Filter();
 });

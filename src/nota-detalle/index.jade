@@ -1,0 +1,88 @@
+extends ../_layouts/base
+
+include ../_modules/hero/hero
+include ../_modules/slider/slider
+include ../_modules/scrollbar/scrollbar
+include ../_modules/pagination/pagination
+include ../_modules/contacto/contacto
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.notas
+        
+        +hero('nota')
+        
+        section#nota
+            .container
+                .row.nopadding-xs
+                    .col-xs-24.col-sm-16.notas__main
+                        article
+                            h1.nota__title Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                            .notas__item__data__info
+                                span.notas__item__data__date 16 de Octubre de 2017
+                                span.notas__item__data__autor por J.J. Poggi
+                                ul.notas__item__data__categories.list-inline
+                                    li | Categorías:
+                                    li 
+                                    a(href="#") Diseño
+                                    li
+                                        a(href="#") Urbanismo
+                            img.img-responsive(src="/images/nota/nota.jpg")
+                            .nota__content
+                                p.nota__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                p.nota__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                h2.nota__subtitle Sección 1.10.32 de "de Finibus Bonorum et Malorum", escrito por Cicero en el 45 antes de Cristo
+                                p.nota__text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+                                H2.nota__subtitle Traducción hecha por H. Rackham en 1914
+                                P.nota__text But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+                    
+                    .col-xs-24.col-sm-8.notas__sidebar__col
+                        .notas__sidebar
+                            form.notas__sidebar__search-form
+                                input(type="text", placeholder="Buscar...")
+                                button(type="submit")
+                                    i.material-icons search
+                                    
+                            .notas__sidebar__news
+                                h3.notas__sidebar__news__title Lo más leído del mes
+                                ul.notas__sidebar__news__list
+                                    - for (var i = 0; i < 3; ++i) {
+                                        li.notas__sidebar__news__item
+                                            h4.notas__sidebar__news__item__title Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                            p.notas__sidebar__news__item__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+                                            a.notas__sidebar__news__item__readmore(href="/nota-detalle")
+                                                | Seguir leyendo  
+                                                i.material-icons keyboard_arrow_right
+                                    - }
+                                +pagination(4)
+                            form.notas__sidebar__newsletter
+                                h3.notas__sidebar__newsletter__title Suscribete al newsletter
+                                p.notas__sidebar__newsletter__text Enterate primero de las noticias y novedades y recibelas en tu email
+                                .notas__sidebar__newsletter__group
+                                    input(type="email", placeholder="Email")
+                                    button(type="submit") suscribir
+        
+        section#related.notas__related(data-name="Relacionadas")
+            .container
+                .row
+                    .col-xs-24
+                        h2.section-title Para seguir leyendo
+                .row.nopadding-xs
+                    +slider('notas__related__slider', 'multi')
+                        each nota in site.data.home.blog
+                            li.col-xs-24.col-sm-12.col-md-6
+                                .home__blog__nota
+                                    .home__blog__nota__img
+                                        img(src=nota.cover)
+                                    .home__blog__nota__data
+                                        h3.home__blog__nota__name= nota.name
+                                        span.home__blog__nota__date= nota.date
+                                        p.home__blog__nota__desc= nota.desc
+                                        a.home__blog__nota__link(href='#') seguir leyendo
+        
+        +contacto
+
+    +scroll-bar

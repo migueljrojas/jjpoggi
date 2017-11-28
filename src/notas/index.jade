@@ -1,0 +1,92 @@
+extends ../_layouts/base
+
+include ../_modules/hero/hero
+include ../_modules/slider/slider
+include ../_modules/scrollbar/scrollbar
+include ../_modules/pagination/pagination
+include ../_modules/contacto/contacto
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.notas
+        
+        +hero('notas', 'Notas e Ideas')
+        
+        section#notas(data-name="Novedades")
+            .container
+                .row.nopadding-xs
+                    .col-xs-24.col-sm-16.notas__main
+                        - for (var i = 0; i < 3; ++i) {
+                            article.notas__item
+                                .notas__item__img
+                                    a(href="/nota-detalle")
+                                        img(src="/images/notas/nota.jpg")
+                                .notas__item__data
+                                    a(href="/nota-detalle")
+                                        h2.notas__item__data__title Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                    .notas__item__data__info
+                                        span.notas__item__data__date 16 de Octubre de 2017
+                                        span.notas__item__data__autor por J.J. Poggi
+                                        ul.notas__item__data__categories.list-inline
+                                            li | Categorías:
+                                            li 
+                                                a(href="#") Diseño
+                                            li
+                                                a(href="#") Urbanismo
+                                    p.notas__item__data__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                                    a.notas__item__data__readmore(href="/nota-detalle")
+                                        | Seguir leyendo  
+                                        i.material-icons keyboard_arrow_right
+                        - }
+                        +pagination(5)    
+                    
+                    .col-xs-24.col-sm-8.notas__sidebar__col
+                        .notas__sidebar
+                            form.notas__sidebar__search-form
+                                input(type="text", placeholder="Buscar...")
+                                button(type="submit")
+                                    i.material-icons search
+                                    
+                            .notas__sidebar__news
+                                h3.notas__sidebar__news__title Lo más leído del mes
+                                ul.notas__sidebar__news__list
+                                    - for (var i = 0; i < 3; ++i) {
+                                        li.notas__sidebar__news__item
+                                            h4.notas__sidebar__news__item__title Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                            p.notas__sidebar__news__item__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+                                            a.notas__sidebar__news__item__readmore(href="/nota-detalle")
+                                                | Seguir leyendo  
+                                                i.material-icons keyboard_arrow_right
+                                    - }
+                                +pagination(4)
+                            form.notas__sidebar__newsletter
+                                h3.notas__sidebar__newsletter__title Suscribete al newsletter
+                                p.notas__sidebar__newsletter__text Enterate primero de las noticias y novedades y recibelas en tu email
+                                .notas__sidebar__newsletter__group
+                                    input(type="email", placeholder="Email")
+                                    button(type="submit") suscribir
+        
+        section#related.notas__related(data-name="Relacionadas")
+            .container
+                .row
+                    .col-xs-24
+                        h2.section-title Para seguir leyendo
+                .row.nopadding-xs
+                    +slider('notas__related__slider', 'multi')
+                        each nota in site.data.home.blog
+                            li.col-xs-24.col-sm-12.col-md-6
+                                .home__blog__nota
+                                    .home__blog__nota__img
+                                        img(src=nota.cover)
+                                    .home__blog__nota__data
+                                        h3.home__blog__nota__name= nota.name
+                                        span.home__blog__nota__date= nota.date
+                                        p.home__blog__nota__desc= nota.desc
+                                        a.home__blog__nota__link(href='#') seguir leyendo
+        
+        +contacto
+
+    +scroll-bar

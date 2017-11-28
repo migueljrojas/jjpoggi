@@ -1,0 +1,67 @@
+extends ../_layouts/base
+
+include ../_modules/hero/hero
+include ../_modules/slider/slider
+include ../_modules/scrollbar/scrollbar
+include ../_modules/pagination/pagination
+include ../_modules/contacto/contacto
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../'
+
+block content
+    main.proyecto
+        +hero('proyecto', 'Nombre del Proyecto')
+        
+        section#intro.proyecto__showcase(data-name="Nombre del Proyecto")
+            .container
+                .row
+                    .col-xs-24.col-sm-14.col-md-16
+                        +slider('proyecto__showcase__slider')
+                            each item in site.data.proyecto.slider
+                                .proyecto__showcase__slide
+                                    .proyecto__showcase__slide__img
+                                        img(src=item)
+                                
+                    .col-xs-24.col-sm-10.col-md-8
+                        .proyecto__showcase__data
+                            .proyecto__showcase__data__item
+                                h3.proyecto__showcase__data__title Acerca del proyecto
+                                p.proyecto__showcase__data__text Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s
+                            .proyecto__showcase__data__item
+                                h3.proyecto__showcase__data__title Cliente
+                                p.proyecto__showcase__data__text Urban Example
+                            .proyecto__showcase__data__item
+                                h3.proyecto__showcase__data__title Fecha
+                                p.proyecto__showcase__data__text Nov 2013
+                            .proyecto__showcase__data__item
+                                h3.proyecto__showcase__data__title Categorías
+                                ul.list-inline
+                                    li
+                                        a(href="#") loren
+                                    li
+                                        a(href="#") ipsum
+                                    li
+                                        a(href="#") dolor
+                                    
+        section#related.proyecto__related(data-name="Relacionados")
+            .container
+                .row
+                    .col-xs-24
+                        h2.section-title Proyectos Relacionados  
+                .row.nopadding-xs
+                    +slider('proyecto__related__slider', 'multi')
+                        each project in site.data.home.portfolio
+                            .proyecto__related__project
+                                .proyecto__related__project__img
+                                    img(src=project.cover)
+                                .proyecto__related__project__data
+                                    h3.proyecto__related__project__name= project.name
+                                    span.proyecto__related__project__date= project.date
+                                    p.proyecto__related__project__desc= project.desc
+                                    a._button.-white.proyecto__related__project__link(href='#') ver proyecto
+                                    
+        +contacto
+
+    +scroll-bar
