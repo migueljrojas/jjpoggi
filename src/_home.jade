@@ -1,0 +1,22 @@
+extends _layouts/base
+
+include _modules/slider/slider
+include _modules/scrollbar/scrollbar
+include _modules/pagination/pagination
+include _modules/contacto/contacto
+
+block content
+    main.landing
+        section#home.home__hero
+                .home__hero__slide
+                    .home__hero__slide__img
+                        img(src="/images/landing.jpg")
+                    .home__hero__slide__overlay
+                    .container.home__hero__container
+                        .home__hero__slide__data
+                            .home__logo
+                                | <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo"></use></svg>  
+                            h1.home__hero__slide__title PROXIMAMENTE
+                            p.home__hero__slide__desc Estamos remodelando nuestro site
+                            
+        
